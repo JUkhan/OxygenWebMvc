@@ -1,0 +1,34 @@
+
+
+
+<h3>Person:</h3>
+
+<form method="post" action="/Person/add">
+
+    Name: <input name="name" value="<% model.name %>">
+    Address: <input name="address" value="<% model.address %>">
+    <input type="submit">
+
+</form>
+
+<br>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tpl>model.list.forEach(function(p){ </tpl>
+            <tr>
+                <td><% p.id %></td>
+                <td><% p.name %></td>
+                <td><% p.address %></td>
+            </tr>
+        <tpl>});</tpl>
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%model.title%></title>
+	<link href="/css/bootstrap.css" rel="stylesheet" />	
+	<link href="/css/Site.css" rel="stylesheet" />   
+    <script src="/scripts/jquery.js"></script>
+   
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a class="navbar-brand" href="/">Oxygen</a>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <tpl>model.menuList.forEach(function(a){</tpl>
+                        <li><a href="<% a.path %>"><% a.name %></a></li>
+                     <tpl>});</tpl>                                    
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="container body-content">
+        
+        <div ui-view>
+            @RenderBody()
+        </div>
+       
+        <hr />
+        <footer>
+            <p>&copy; Oxygen Web MVC Application</p>
+        </footer>
+    </div>
+ 
+</body>
+</html>

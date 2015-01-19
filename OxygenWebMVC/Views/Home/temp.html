@@ -1,0 +1,23 @@
+<b>Hello <%model.name %></b><% 2+5 %>
+
+    <form method="post" action="/Home/add">
+
+        Name: <input name="input1" value="<% model.name %>"><br>
+        Address: <input name="input2" value="<% model.address %>"><br>
+        <input type="submit" value="<% con.getMsg(model.name) %>">
+
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Wheels</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tpl>model.list.forEach(function(b){ </tpl>
+                <tr><td><% b.name %></td><td><% b.wheels %></td><td style="color: <% b.color %>"><% b.color %></td></tr>
+            <tpl>});</tpl>
+        </tbody>
+    </table>
